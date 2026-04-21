@@ -3,7 +3,7 @@ package ar.edu.unahur.obj2.w2j.ciudad;
 public class Sensor {
     private Integer capacidad;
     private Integer durabilidad;
-    private Boolean tieneMejorasTecno;
+    private Boolean tieneMejorasTecno = true;
 
     public Integer getCapacidad() {
         return capacidad;
@@ -27,5 +27,18 @@ public class Sensor {
 
     public void setTieneMejorasTecno(Boolean tieneMejorasTecno) {
         this.tieneMejorasTecno = tieneMejorasTecno;
+    }
+
+    public Integer eficienciaOperativa(){
+        if(this.getTieneMejorasTecno()){
+            return this.getCapacidad() * 2;
+        }
+        else{
+            return this.getCapacidad();
+        }
+    }
+
+    public Boolean esDuradero(){
+        return this.getDurabilidad() > 2* this.getCapacidad();
     }
 }
